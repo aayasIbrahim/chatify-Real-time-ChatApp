@@ -8,8 +8,17 @@ const __dirname = path.resolve();
 const app = express();
 const port = process.env.Port;
 
+
+//All routes 
+
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
+
+
+
+
+
+
 
 //make ready for deployment
 if ((process.env.Node_ENV = "production")) {
