@@ -6,7 +6,7 @@ import messageRoutes from "./routes/message.route.js";
 dotenv.config();
 const __dirname = path.resolve();
 const app = express();
-const port = process.env.Port;
+// const port = process.env.Port;
 
 
 //All routes 
@@ -27,6 +27,7 @@ if ((process.env.Node_ENV = "production")) {
     res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
   });
 }
-app.listen(port, () => {
-  console.log("server is runing:" + port);
-});
+// app.listen(port, () => {
+//   console.log("server is runing:" + port);
+// });
+export default app;
