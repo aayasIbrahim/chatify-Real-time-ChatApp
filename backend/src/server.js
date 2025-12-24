@@ -1,10 +1,10 @@
 import express from "express";
 import path from "path";
-import dotenv from "dotenv";
 import authRoutes from "./routes/auth.route.js";
 import messageRoutes from "./routes/message.route.js";
 import { connectDB } from "../lib/db.js";
-dotenv.config();
+import { ENV } from "../lib/env.js";
+
 const __dirname = path.resolve();
 const app = express();
 const port = process.env.Port;
@@ -22,7 +22,8 @@ if ((process.env.Node_ENV = "production")) {
     res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
   });
 }
-app.listen(port, () => {
+
+app.listen(ENV.PORT, () => {
   console.log("server is runing:" + port);
   connectDB();
 });
