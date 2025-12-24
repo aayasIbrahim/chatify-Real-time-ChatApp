@@ -4,7 +4,6 @@ import { ENV } from "./env.js";
 
 export const generateToken = (userId, res) => {
   const { JWT_SECRET } = ENV;
-  console.log(JWT_SECRET)
   if (!JWT_SECRET) {
     throw new Error("JWT_Secret is not configuration");
   }
