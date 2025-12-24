@@ -3,22 +3,17 @@ import path from "path";
 import dotenv from "dotenv";
 import authRoutes from "./routes/auth.route.js";
 import messageRoutes from "./routes/message.route.js";
+import { connectDB } from "../lib/db.js";
 dotenv.config();
 const __dirname = path.resolve();
 const app = express();
-// const port = process.env.Port;
+const port = process.env.Port;
+app.use(express.json());
 
-
-//All routes 
+//All routes
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
-
-
-
-
-
-
 
 //make ready for deployment
 if ((process.env.Node_ENV = "production")) {
@@ -27,7 +22,7 @@ if ((process.env.Node_ENV = "production")) {
     res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
   });
 }
-// app.listen(port, () => {
-//   console.log("server is runing:" + port);
-// });
-export default app;
+app.listen(port, () => {
+  console.log("server is runing:" + port);
+  connectDB();
+});
