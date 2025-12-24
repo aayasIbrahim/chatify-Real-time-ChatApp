@@ -1,6 +1,8 @@
 import User from "../../models/User.js";
 import { generateToken } from "../../lib/utils.js";
 import bcrypt from "bcryptjs";
+import { sendWelcomeEmail } from "../email/emailHandler.js";
+import { ENV } from "../../lib/env.js";
 
 export const signup = async (req, res) => {
   const { fullName, email, password } = req.body;
@@ -46,6 +48,15 @@ export const signup = async (req, res) => {
         emai: newUser.email,
         profilePic: newUser.profilePic,
       });
+
+      ///sent email using Email Resend package
+
+      try {
+        const { CLIENT_URL } = ENV;
+        sendWelcomeEmail(saveUser.email, saveUser.fullName, CLIENT_URL);
+      } catch (error) {
+        console.error(error);
+      }
     } else {
       res.status(400).json({ message: "Invalid user data" });
     }
