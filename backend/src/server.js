@@ -25,7 +25,7 @@ if ((process.env.Node_ENV = "production")) {
     res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
   });
 }
-const  PORT  = ENV.PORT;
+const  {PORT}  = ENV;
 
 app.listen(PORT, () => {
   console.log("server is runing:" + PORT);
