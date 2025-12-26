@@ -4,11 +4,16 @@ import path from "path";
 import authRoutes from "./routes/auth.route.js";
 import messageRoutes from "./routes/message.route.js";
 import { connectDB } from "../lib/db.js";
+import cors from "cors";
 
 import { ENV } from "../lib/env.js";
 
 const __dirname = path.resolve();
 const app = express();
+app.use(cors({
+  origin: "http://localhost:5173",
+  credentials: true,
+}));
 app.use(express.json());
 app.use(cookieParser());
 
