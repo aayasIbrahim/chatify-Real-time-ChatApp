@@ -1,38 +1,38 @@
-import React, { useState } from "react";
+import React from "react";
 
 function SignUpPage() {
-  const [fullName, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [profilePic, setProfilePic] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+//   const [fullName, setName] = useState("");
+//   const [email, setEmail] = useState("");
+//   const [password, setPassword] = useState("");
+//   const [profilePic, setProfilePic] = useState("");
+//   const [loading, setLoading] = useState(false);
+//   const [error, setError] = useState(null);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError(null);
-    try {
-      const res = await fetch("http://localhost:3000/api/auth/signup", {
-        method: "POST",
-        headers: {
-          "content-Type": "application/json",
-        },
-        body: JSON.stringify({ fullName, email, password, profilePic }),
-      });
-      const data = await res.json();
-      if (!res.ok) {
-        throw new Error(data.message);
-      }
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     setLoading(true);
+//     setError(null);
+//     try {
+//       const res = await fetch("http://localhost:3000/api/auth/signup", {
+//         method: "POST",
+//         headers: {
+//           "content-Type": "application/json",
+//         },
+//         body: JSON.stringify({ fullName, email, password, profilePic }),
+//       });
+//       const data = await res.json();
+//       if (!res.ok) {
+//         throw new Error(data.message);
+//       }
+//     } catch (err) {
+//       setError(err.message);
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
+    <form className="min-h-screen flex justify-center items-center gap-5">
+      {/* <div>
         <label>full name</label>
         <input
           type="text"
@@ -67,7 +67,10 @@ function SignUpPage() {
       {error && <p className="text-red-500">{error}</p>}
       <button type="submit" disabled={loading}>
         {loading ? "Register...." : "Register"}
-      </button>
+      </button> */}
+
+     
+      
     </form>
   );
 }

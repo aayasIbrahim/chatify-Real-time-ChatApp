@@ -30,46 +30,62 @@ function LoginPage() {
       setLoading(false);
     }
 
-    // এখানে পরে API call করবে
+
   };
 
   return (
-    <div style={{ maxWidth: "400px", margin: "50px auto" }}>
-      <h2>Login</h2>
-
-      <form onSubmit={handleSubmit}>
-        {/* EMAIL */}
-        <div>
-          <label>Email</label>
-          <br />
-          <input
-            type="email"
-            placeholder="you@example.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+    <div className="hero bg-base-200 min-h-screen">
+      <div className="hero-content flex-col lg:flex-row-reverse">
+        <div className="text-center lg:text-left">
+          <h1 className="text-5xl font-bold">Login now!</h1>
+          <p className="py-6">
+            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
+            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
+            a id nisi.
+          </p>
         </div>
-
-        <br />
-
-        {/* PASSWORD */}
-        <div>
-          <label>Password</label>
-          <br />
-          <input
-            type="password"
-            placeholder="Enter your password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+          <form className="card-body " onSubmit={handleSubmit}>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Email</span>
+              </label>
+              <input
+                type="email"
+                placeholder="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="input input-bordered"
+                required
+              />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Password</span>
+              </label>
+              <input
+                type="password"
+                placeholder="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="input input-bordered"
+                required
+              />
+              <label className="label">
+                <a href="#" className="label-text-alt link link-hover">
+                  Forgot password?
+                </a>
+              </label>
+            </div>
+            <div className="form-control ">{error && <p className="text-red-500">{error}</p>}</div>
+            <div className="form-control mt-6">
+              <button className="btn btn-primary bg-black " type="submit">
+                {loading ? "Login..." : "LogIn"}
+              </button>
+            </div>
+          </form>
         </div>
-
-        <br />
-        {error && <p style={{ color: "red" }}>{error}</p>}
-        <button type="submit">{loading ? "Submiting" : "submit"}</button>
-      </form>
+      </div>
     </div>
   );
 }

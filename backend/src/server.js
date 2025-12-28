@@ -7,16 +7,17 @@ import { connectDB } from "../lib/db.js";
 import cors from "cors";
 
 import { ENV } from "../lib/env.js";
-
 const __dirname = path.resolve();
 const app = express();
-app.use(cors({
-  origin: "http://localhost:5173",
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin: ENV.CLIENT_URL,
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 app.use(cookieParser());
-
 
 //All routes
 
@@ -30,7 +31,7 @@ if ((process.env.Node_ENV = "production")) {
     res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
   });
 }
-const  {PORT}  = ENV;
+const { PORT } = ENV;
 
 app.listen(PORT, () => {
   console.log("server is runing:" + PORT);
