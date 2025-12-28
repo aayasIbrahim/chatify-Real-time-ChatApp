@@ -1,13 +1,13 @@
 import { Routes,Route } from "react-router";
 import ChatPage from "./page/ChatPage";
-import LogInPage from "./page/LogInPage";
-import { useAuthStore } from "./store/useAuthStore";
+
+import SignUpPage from "./page/SignUpPage";
+import LogInPage from "./page/logInPage";
 
 export default function App() {
-  const{login,isloading}=useAuthStore()
-  console.log(login,isloading)
+
   return (
-     <div className="min-h-screen bg-slate-900 relative flex items-center justify-center p-4 overflow-hidden">
+     <div className="bg-slate-900">
       {/* DECORATORS - GRID BG & GLOW SHAPES */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px]" />
       <div className="absolute top-0 -left-4 size-96 bg-pink-500 opacity-20 blur-[100px]" />
@@ -16,7 +16,7 @@ export default function App() {
     <Routes>
       <Route path='/'element={<ChatPage/>}/>
       <Route path='/login'element={<LogInPage/>}/>
-      <Route path='/signup'element={<ChatPage/>}/>
+      <Route path='/signup'element={<SignUpPage/>}/>
     </Routes>
     </div>
   )
