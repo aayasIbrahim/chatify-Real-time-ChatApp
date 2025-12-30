@@ -12,25 +12,32 @@ function LoginPage() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:3000/api/auth/login", {
+      const res = await fetch("http://localhost:4000/api/auth/login", {
         method: "POST",
         headers: {
-          "content-type": "application/json",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ email, password }),
       });
-      const data = await res.json();
-      if (!res.ok) {
-        throw new Error(data.message);
+
+      // 👉 SAFE JSON PARSE
+      const text = await res.text();
+      let data = {};
+
+      if (text) {
+        data = JSON.parse(text);
       }
+
+      if (!res.ok) {
+        throw new Error(data.message || "Login failed");
+      }
+
       localStorage.setItem("token", data.token);
-    } catch (error) {
-      setError(error.message);
+    } catch (err) {
+      setError(err.message);
     } finally {
       setLoading(false);
     }
-
-
   };
 
   return (
@@ -40,47 +47,45 @@ function LoginPage() {
           <h1 className="text-5xl font-bold">Login now!</h1>
           <p className="py-6">
             Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
+            excepturi exercitationem quasi.
           </p>
         </div>
-        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-          <form className="card-body " onSubmit={handleSubmit}>
+
+        <div className="card bg-base-100 w-full max-w-sm shadow-2xl">
+          <form className="card-body" onSubmit={handleSubmit}>
             <div className="form-control">
-              <label className="label">
-                <span className="label-text">Email</span>
-              </label>
+              <label className="label">Email</label>
               <input
                 type="email"
-                placeholder="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="input input-bordered"
                 required
               />
             </div>
+
             <div className="form-control">
-              <label className="label">
-                <span className="label-text">Password</span>
-              </label>
+              <label className="label">Password</label>
               <input
                 type="password"
-                placeholder="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="input input-bordered"
                 required
               />
-              <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
-              </label>
             </div>
-            <div className="form-control ">{error && <p className="text-red-500">{error}</p>}</div>
+
+            {error && (
+              <p className="text-red-500 text-sm mt-2">{error}</p>
+            )}
+
             <div className="form-control mt-6">
-              <button className="btn btn-primary bg-black " type="submit">
-                {loading ? "Login..." : "LogIn"}
+              <button
+                type="submit"
+                disabled={loading}
+                className="btn btn-primary bg-black"
+              >
+                {loading ? "Logging in..." : "Login"}
               </button>
             </div>
           </form>
