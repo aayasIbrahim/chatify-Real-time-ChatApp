@@ -1,10 +1,11 @@
 import { Routes, Route, Navigate } from "react-router";
 import ChatPage from "./page/ChatPage";
-
+import {Toaster} from "react-hot-toast"
 import SignUpPage from "./page/SignUpPage";
 import LogInPage from "./page/logInPage";
 import { useAuthStore } from "./store/useAuthStore";
 import { useEffect } from "react";
+import PageLoder from "./components/PageLoder";
 
 export default function App() {
   const { authUser,isCheckingAuth,checkAuth } = useAuthStore();
@@ -13,7 +14,7 @@ export default function App() {
   }, [checkAuth]);
   console.log(authUser ,'from login page');
 
-  // if(isCheckingAuth) return <PageLoader/>
+  if(isCheckingAuth) return <PageLoder/>
   return (
     <div className="min-h-screen bg-slate-900 relative flex items-center justify-center p-4 overflow-hidden">
       {/* DECORATORS - GRID BG & GLOW SHAPES */}
