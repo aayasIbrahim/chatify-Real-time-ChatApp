@@ -1,7 +1,7 @@
 import { useChatStore } from "../store/useChatStore";
 
 import BorderAnimatedContainer from "../components/BorderAnimatedContainer";
-import ProfileHeader from "../components/PageLoder";
+import ProfileHeader from "../components/ProfileHeader";
 import ActiveTabSwitch from "../components/ActiveTabSwitch";
 import ChatsList from "../components/ChatList"
 import ContactList from "../components/ContactList";
@@ -15,7 +15,7 @@ function ChatPage() {
     <div className="relative w-full max-w-6xl h-[800px]">
       <BorderAnimatedContainer>
         {/* LEFT SIDE */}
-        <div className="w-80 bg-slate-800/50 backdrop-blur-sm flex flex-col">
+        <div className="w-80  backdrop-blur-sm flex flex-col">
           <ProfileHeader />
           <ActiveTabSwitch />
 
