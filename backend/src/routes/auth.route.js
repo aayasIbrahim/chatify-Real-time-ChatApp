@@ -14,11 +14,8 @@ router.post("/signup", signup);
 router.post("/login", login);
 router.post("/logout", logout);
 router.put("/update-profile", protectRoute, updateProfile);
-router.get("/check", protectRoute, (req, res) => {
-  if (!req.user) {
-    return res.status(401).json({ message: "User not found in request" });
-  }
-  res.json(req.user);
-});
+router.get("/check", protectRoute, (req, res) =>
+  res.status(200).json(req.user)
+);
 
 export default router;
