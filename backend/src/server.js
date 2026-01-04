@@ -9,6 +9,8 @@ import cors from "cors";
 import { ENV } from "../lib/env.js";
 const __dirname = path.resolve();
 const app = express();
+app.set("trust proxy", 1);
+
 app.use(
   cors({
     origin: ENV.CLIENT_URL,
@@ -17,6 +19,7 @@ app.use(
 );
 
 app.use(express.json());
+
 app.use(cookieParser());
 
 //All routes
