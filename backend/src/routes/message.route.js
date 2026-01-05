@@ -9,8 +9,8 @@ import { protectRoute } from "../middleware/auth.middleware.js";
 const route = express.Router();
 route.use(protectRoute);
 
-route.get("/contact", getAllContact);
-route.get("/chat", getChatPartners);
+route.get("/contacts", getAllContact);
+route.get("/chats", getChatPartners);
 route.get("/:id", getMessageByUserId);
 route.post("/:id/send", sendMessage);
 
