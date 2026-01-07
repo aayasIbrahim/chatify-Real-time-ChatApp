@@ -7,6 +7,7 @@ import MessageInput from "./MessageInput";
 import MessagesLoadingSkeleton from "./MessageLoadingSkeleton";
 
 function ChatContainer() {
+  console.log("chat container rendering")
   const {
     selectedUser,
     getMessagesByUserId,
@@ -20,10 +21,10 @@ function ChatContainer() {
 
   useEffect(() => {
     getMessagesByUserId(selectedUser._id);
-    subscribeToMessages();
+    // subscribeToMessages();
 
     // clean up
-    return () => unsubscribeFromMessages();
+    // return () => unsubscribeFromMessages();
   }, [selectedUser, getMessagesByUserId, subscribeToMessages, unsubscribeFromMessages]);
 
   useEffect(() => {
