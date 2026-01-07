@@ -25,7 +25,7 @@ function ChatPage() {
 
         {/* RIGHT SIDE */}
         <div className="flex-1 flex flex-col bg-slate-900/50 backdrop-blur-sm">
-          {selectedUser ? <ChatContainer /> : <NoConversationPlaceholder />}
+          {selectedUser ? <ChatContainer/> : <NoConversationPlaceholder />}
         </div>
       </BorderAnimatedContainer>
     </div>

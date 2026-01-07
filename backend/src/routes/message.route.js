@@ -12,6 +12,6 @@ route.use(protectRoute);
 route.get("/contacts", getAllContact);
 route.get("/chats", getChatPartners);
 route.get("/:id", getMessageByUserId);
-route.post("/:id/send", sendMessage);
+route.post("/send/:id", sendMessage);
 
 export default route;
