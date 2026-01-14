@@ -77,7 +77,7 @@ export const useAuthStore = create((set, get) => ({
     const { authUser, socket } = get();
     if (!authUser || socket?.connected) return;
 
-    const newSocket = io("http://localhost:4000", {
+    const newSocket = io("https://chatify-real-time-chatapp.onrender.com", {
       withCredentials: true,
     });
 
