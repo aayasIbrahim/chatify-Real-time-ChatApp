@@ -77,7 +77,7 @@ export const useAuthStore = create((set, get) => ({
     const { authUser, socket } = get();
     if (!authUser || socket?.connected) return;
 
-    const newSocket = io("https://chatify-real-time-chatapp.onrender.com", {
+    const newSocket = io(import.meta.env.VITE_API_URL, {
       withCredentials: true,
     });
 
