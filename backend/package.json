@@ -7,7 +7,6 @@
     "start": "node src/server.js"
   },
   "dependencies": {
-    "express": "^4.19.2",
     "@arcjet/inspect": "^1.0.0-beta.15",
     "@arcjet/node": "^1.0.0-beta.15",
     "bcryptjs": "^3.0.3",
@@ -15,9 +14,11 @@
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
+    "express": "^4.19.2",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.0.2",
-    "resend": "^6.6.0"
+    "resend": "^6.6.0",
+    "socket.io": "^4.8.3"
   },
   "devDependencies": {
     "nodemon": "^3.1.11"

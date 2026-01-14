@@ -7,7 +7,7 @@ import MessageInput from "./MessageInput";
 import MessagesLoadingSkeleton from "./MessageLoadingSkeleton";
 
 function ChatContainer() {
-  console.log("chat container rendering")
+ 
   const {
     selectedUser,
     getMessagesByUserId,

@@ -5,10 +5,11 @@ import authRoutes from "./routes/auth.route.js";
 import messageRoutes from "./routes/message.route.js";
 import { connectDB } from "../lib/db.js";
 import cors from "cors";
+import {app,server} from "../lib/socket.js";
 
 import { ENV } from "../lib/env.js";
 const __dirname = path.resolve();
-const app = express();
+// const app = express();
 app.set("trust proxy", 1);
 
 app.use(
@@ -36,7 +37,7 @@ app.use("/api/messages", messageRoutes);
 
 const { PORT } = ENV;
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   connectDB();
   console.log("server is runing:" + PORT);
 });
