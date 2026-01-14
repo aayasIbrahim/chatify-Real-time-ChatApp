@@ -11,12 +11,12 @@ export const generateToken = (userId, res) => {
     expiresIn: "7d",
   });
 
-  res.cookie("token", token, {   // ✅ cookie name same as middleware
-    maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days in ms
-    httpOnly: true,                  // prevent JS access
-    sameSite: "none",                // cross-domain
-    secure: NODE_ENV === "development" ? false : true, // HTTPS only
-  });
+  res.cookie("token", token, {
+  maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+  httpOnly: true,
+  sameSite: "none",   // allow cross-origin
+  secure: true,       // must HTTPS in production
+});
 
   return token;
 };
