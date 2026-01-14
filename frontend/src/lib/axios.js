@@ -7,4 +7,4 @@ export const axiosInstance = axios.create({
       : "/api",
   withCredentials: true,
 });
-// ? "https://chatify-real-time-chatapp.onrender.com/api/"
+
