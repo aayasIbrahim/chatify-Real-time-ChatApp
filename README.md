@@ -39,29 +39,32 @@ A full-stack **real-time chat application** built with **React (Vite)** frontend
 
 ---
 
-Deployment
 
-Frontend: Vercel
+## 📦 Deployment
 
-Backend: Render
+- **Frontend:** Vercel  
+- **Backend:** Render  
+- **MongoDB:** Remote DB (Atlas or other cloud DB)
 
-MongoDB: remote DB
+---
 
-Usage
+## 📝 Usage
 
-1,Signup / Login
+1. Signup / Login  
+2. Start chatting in real-time  
+3. See online users  
+4. Update profile  
 
-2.Start chatting in real-time
-
-3,See online users
-
-4,Update profile
-
+**Demo Credentials:**
 
 Email: rtk@gmail.com
 Password: 12345678
 
+yaml
+Copy code
 
 
-**Frontend**
+
+
+**
 
