@@ -21,10 +21,10 @@ function ChatContainer() {
 
   useEffect(() => {
     getMessagesByUserId(selectedUser._id);
-    // subscribeToMessages();
+    subscribeToMessages();
 
     // clean up
-    // return () => unsubscribeFromMessages();
+    return () => unsubscribeFromMessages();
   }, [selectedUser, getMessagesByUserId, subscribeToMessages, unsubscribeFromMessages]);
 
   useEffect(() => {
