@@ -60,11 +60,5 @@ A full-stack **real-time chat application** built with **React (Vite)** frontend
 Email: rtk@gmail.com
 Password: 12345678
 
-yaml
-Copy code
-
-
-
-
-**
+VITE_API_URL=https://chatify-real-time-chatapp.onrender.com
 
