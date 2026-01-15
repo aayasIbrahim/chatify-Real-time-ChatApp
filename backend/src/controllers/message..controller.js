@@ -55,6 +55,8 @@ export const sendMessage = async (req, res) => {
         .json({ message: "Cannot send messages to yourself." });
     }
     const receiverExists = await User.exists({ _id: receiverId });
+    console.log("🎯 receiverSocketId:", receiverExists);
+
     if (!receiverExists) {
       return res.status(404).json({ message: "Receiver not found." });
     }
@@ -72,6 +74,7 @@ export const sendMessage = async (req, res) => {
     });
     await newMessage.save();
     const receiverSocketId = getReceiverSocketId(receiverId);
+      console.log("🎯 receiverSocketId:", receiverSocketId);
     if (receiverSocketId) {
       io.to(receiverSocketId).emit("newMessage", newMessage);
     }
