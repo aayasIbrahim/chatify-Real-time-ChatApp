@@ -33,6 +33,17 @@ function LoginPage() {
                     Welcome Back
                   </h2>
                   <p className="text-slate-400">
+                    Developed by{" "}
+                    <a
+                      href="https://portfolio-ayas-omega.vercel.app"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-400 hover:text-blue-500 underline"
+                    >
+                      Ayas Ibrahim
+                    </a>
+                  </p>
+                  <p className="text-slate-400">
                     Login to access to your account
                   </p>
                 </div>
@@ -81,7 +92,7 @@ function LoginPage() {
                     type="submit"
                     disabled={isLoggingIn}
                   >
-                    { isLoggingIn ? (
+                    {isLoggingIn ? (
                       <LoaderIcon className="w-full h-5 animate-spin text-center text-white" />
                     ) : (
                       "Sign In"
